@@ -25,6 +25,7 @@ RUN find /usr/local/aws-cli/v2/current/dist/awscli/botocore/data -name examples-
 # Build the final image using docker image as the starting point, then copy in aws-cli
 FROM python:3.10-alpine${ALPINE_VERSION}
 LABEL maintainer "Dominik L. Borkowski"
+LABEL org.opencontainers.image.source https://github.com/dominikborkowski/alpine-python3-aws
 COPY --from=aws_cli_builder /usr/local/aws-cli/ /usr/local/aws-cli/
 COPY --from=aws_cli_builder /aws-cli-bin/ /usr/local/bin/
 
