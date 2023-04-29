@@ -28,7 +28,7 @@ LABEL maintainer "Dominik L. Borkowski"
 COPY --from=aws_cli_builder /usr/local/aws-cli/ /usr/local/aws-cli/
 COPY --from=aws_cli_builder /aws-cli-bin/ /usr/local/bin/
 
-# # Install few essential tools and AWS SAM CLI, then clean up, while trying to keep number of layers down to a minimum
+# Install few essential tools and AWS SAM CLI, then clean up, while trying to keep number of layers down to a minimum
 RUN apk --no-cache --upgrade --virtual=build_environment add \
     gcc musl-dev libffi-dev openssl-dev && \
     apk --no-cache --upgrade --virtual=random_tools add \
